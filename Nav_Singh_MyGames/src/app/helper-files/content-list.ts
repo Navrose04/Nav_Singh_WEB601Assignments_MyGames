@@ -24,22 +24,20 @@ export class GameList {
     return this.games.length;
   }
 
-  getGameDetails(index: number) {
-    const game = this.games[index];
-    if (!game) {
-      return 'no game is found in this index.';
+  htmlOutput(): string {
+    let htmlString = '';
+  
+    for (const game of this.games) {
+      htmlString += `
+        <div id="${game.id}">
+          <h2>${game.title}</h2>
+          <img src="${game.imgURL}" alt="This is an image" />
+          <p>${game.description}</p>
+          <p>${game.creator}</p>
+        </div>
+      `;
     }
-    let output = `<h2>${game.title}</h2>
-                  <p>${game.description}</p>
-                  <p>Created by: ${game.creator}</p>`;
-    // Check if imgURL is present and generate an image tag
-    if (game.imgURL) {
-      output += `<img src="${game.imgURL}" alt="${game.title}">`;
-    }
-    // Check if type is present and add it to the output
-    if (game.type) {
-      output += `<p>Type: ${game.type}</p>`;
-    }
-    return output;
-  }
+  
+    return htmlString;
+}
 }
