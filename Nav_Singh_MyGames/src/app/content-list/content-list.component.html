@@ -1,0 +1,6 @@
+<ng-container *ngFor="let contents of gameList; first as isFirst">
+    <div [class.first-child]="isFirst">
+        <app-content-card [content]="contents"></app-content-card>
+    </div>
+    
+</ng-container>

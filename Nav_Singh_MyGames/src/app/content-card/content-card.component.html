@@ -1,1 +1,8 @@
-<div [innerHTML]="gameList.htmlOutput()"></div>
+<div class="content-card">
+    <h2 [textContent]="content.title"></h2>
+    <p [textContent]="content.description"></p>
+    <p>Creator: <span [textContent]="content.creator"></span></p>
+    <p *ngIf="content.type">Type: <span [textContent]="content.type"></span></p>
+    <p *ngIf="content.tags">Tags: <span [textContent]="content.tags.join(', ')"></span></p>
+    <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="displayContent(content.id, content.title)">
+</div>
