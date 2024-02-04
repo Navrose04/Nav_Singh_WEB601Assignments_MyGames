@@ -72,6 +72,16 @@ ngOnInit(): void {
     imgURL: 'https://cdn2.unrealengine.com/egs-fallguys-mediatonic-g1a-00-1920x1080-75b891d04ff9.jpg',
     type: 'Game',
     tags: ['Platformer', 'Battle Royale', 'Multiplayer']
+  },
+  
+  {
+    id: 7,
+    title: 'Counter-Strike: Global Offensive',
+    description: 'Multiplayer tactical first-person shooter',
+    creator: 'Valve Corporation',
+    imgURL: 'https://media.steampowered.com/apps/csgo/blog/images/fb_image.png?v=6',
+    type: 'Game',
+    tags: ['First Person', 'Battle Royale', 'Multiplayer']
   }
 ];
 
