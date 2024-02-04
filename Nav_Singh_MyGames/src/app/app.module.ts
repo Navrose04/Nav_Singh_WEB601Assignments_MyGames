@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/*import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';  // Import CommonModule
 import { AppComponent } from './app.component';
@@ -17,3 +17,4 @@ import { ContentListComponent } from "./content-list/content-list.component";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+*/
