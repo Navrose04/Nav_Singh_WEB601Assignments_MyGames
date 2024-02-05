@@ -12,7 +12,11 @@ import { ContentCardComponent } from "../content-card/content-card.component";
 })
 export class ContentListComponent implements OnInit{
   gameList:Content[];
-isFirst: any;
+  searchTitle = '';
+  contentFound = false;
+  searchResult = '';
+  isFirst: any;
+
 constructor(){
 this.gameList=[];
 
@@ -85,5 +89,10 @@ ngOnInit(): void {
   }
 ];
 
+}
+searchContent() {
+  const foundItem = this.gameList.find(item => item.title.toLowerCase() === this.searchTitle.toLowerCase());
+  this.contentFound = this.gameList.some(item => item.title === this.searchTitle);
+  this.searchResult = this.contentFound ? 'Content found!' : 'Content not found.';
 }
 }

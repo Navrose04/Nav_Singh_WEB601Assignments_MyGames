@@ -1,6 +1,9 @@
+<input #searchInput placeholder="Enter title" (input)="searchTitle = searchInput.value">
+<button (click)="searchContent()">Search</button>
+<p [ngStyle]="{'color': contentFound ? 'green' : 'red'}">{{searchResult}}</p>
+
 <ng-container *ngFor="let contents of gameList; first as isFirst">
     <div [class.first-child]="isFirst">
         <app-content-card [content]="contents"></app-content-card>
     </div>
-    
 </ng-container>
