@@ -2,16 +2,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Content } from './helper-files/content-interface';
 
 @Pipe({
-  name: 'contentTypeFilter',
+  name: 'contentTitleFilter',
   standalone: true
 })
 export class ContentFilterPipe implements PipeTransform {
 
-  transform(items: Content[], type: string): Content[] {
-    if (!items || !type) {
-      return items; 
+  transform(items: Content[], searchText: string): Content[] {
+    if (!items || !searchText) {
+      return items;
     }
-    
-    return items.filter(item => item.type === type);
+    searchText = searchText.toLowerCase();
+    return items.filter(item => item.title.toLowerCase().includes(searchText));
   }
 }

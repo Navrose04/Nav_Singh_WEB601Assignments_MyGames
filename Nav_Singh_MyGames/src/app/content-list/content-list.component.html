@@ -1,9 +1,17 @@
-<input #searchInput placeholder="Enter title" (input)="searchTitle = searchInput.value">
+<!-- Search input -->
+<input [(ngModel)]="searchTitle" placeholder="Enter title">
 <button (click)="searchContent()">Search</button>
-<p [ngStyle]="{'color': contentFound ? 'green' : 'red'}">{{searchResult}}</p>
+<!-- Display search result message -->
+<p [ngStyle]="{'color': contentFound ? 'green' : 'red'}">{{ searchResult }}</p>
 
-<ng-container *ngFor="let contents of gameList; first as isFirst">
-    <div [class.first-child]="isFirst">
-        <app-content-card [content]="contents"></app-content-card>
-    </div>
-</ng-container>
+<!-- Display Games section -->
+<h2 [ngStyle]="{'color': 'blue'}">Games</h2>
+<app-content-card *ngFor="let item of gameItems | contentTitleFilter: searchTitle" [content]="item"></app-content-card>
+
+<!-- Display Battle Games section -->
+<h2 [ngStyle]="{'color': 'orange'}">Battle Games</h2>
+<app-content-card *ngFor="let item of battleItems | contentTitleFilter: searchTitle" [content]="item"></app-content-card>
+
+<!-- Display None section -->
+<h2 [ngStyle]="{'color': 'purple'}">None</h2>
+<app-content-card *ngFor="let item of noneItems | contentTitleFilter: searchTitle" [content]="item"></app-content-card>
