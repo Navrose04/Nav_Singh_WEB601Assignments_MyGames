@@ -55,7 +55,7 @@ ngOnInit(): void {
     title: 'Minecraft',
     description: 'A sandbox video game by Mojang Studios',
     creator: 'Markus Persson',
-    imgURL: 'https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png',
+    imgURL: '',
     type: 'Game',
     tags: ['Sandbox', 'Survival', 'Building']
   },

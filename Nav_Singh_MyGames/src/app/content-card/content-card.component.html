@@ -1,8 +1,12 @@
 <div class="content-card">
-    <h2 [textContent]="content.title"></h2>
-    <p [textContent]="content.description"></p>
-    <p>Creator: <span [textContent]="content.creator"></span></p>
-    <p *ngIf="content.type">Type: <span [textContent]="content.type"></span></p>
-    <p *ngIf="content.tags">Tags: <span [textContent]="content.tags.join(', ')"></span></p>
-    <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="displayContent(content.id, content.title)">
+    <h2>{{ content.title }}</h2>
+    <p>{{ content.description }}</p>
+    <p>Creator: <span>{{ content.creator }}</span></p>
+    <p *ngIf="content.type">Type: <span>{{ content.type }}</span></p>
+    <p *ngIf="content.tags">Tags: <span>{{ content.tags.join(', ') }}</span></p>
+    
+    <img *ngIf="content.imgURL; else defaultImage" [src]="content.imgURL" [alt]="content.title" (click)="displayContent(content.id, content.title)">
+    <ng-template #defaultImage>
+        <img src="https://th.bing.com/th/id/OIP._RDScj3jZeYVl7UjLX7brAHaEK?w=267&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Default Image" (click)="displayContent(content.id, content.title)">
+    </ng-template>
 </div>
