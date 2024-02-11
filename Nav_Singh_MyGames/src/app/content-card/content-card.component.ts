@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ContentHoverDirective } from '../content-hover.directive';
 @Component({
   selector: 'app-content-card',
   standalone: true,
-  imports:[CommonModule],
+  imports:[CommonModule, ContentHoverDirective],
   templateUrl: './content-card.component.html',
   styleUrl: './content-card.component.scss'
 })
