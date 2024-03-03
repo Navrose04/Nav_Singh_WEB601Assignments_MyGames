@@ -1,0 +1,14 @@
+<div>
+    <input type="text" placeholder="Enter ID" [(ngModel)]="newContent.id">
+    <input type="text" placeholder="Enter Title" [(ngModel)]="newContent.title">
+    <input type="text" placeholder="Enter Description" [(ngModel)]="newContent.description">
+    <input type="text" placeholder="Enter Creator" [(ngModel)]="newContent.creator">
+    <input type="text" placeholder="Enter Type" [(ngModel)]="newContent.type">
+    <input type="text" placeholder="Enter Image URL" [(ngModel)]="newContent.imgURL">
+    <input type="text" placeholder="Enter Tags" [(ngModel)]="newContent.tags">
+ 
+    <button (click)="submitContent()">Submit</button>
+    <p *ngIf="errorMessage" style="color: red; font-weight: bold;">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>
+
+  </div>

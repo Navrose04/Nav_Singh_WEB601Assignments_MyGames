@@ -4,10 +4,11 @@ import { Content } from '../helper-files/content-interface';
 import { ContentCardComponent } from '../content-card/content-card.component';
 import { ContentFilterPipe} from '../content-filter.pipe';
 import { FormsModule } from '@angular/forms';
+import {CreateContentComponent} from '../create-content/create-content.component';
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule, ContentCardComponent, ContentFilterPipe, FormsModule],
+  imports: [CommonModule, ContentCardComponent, ContentFilterPipe, FormsModule, CreateContentComponent],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -111,5 +112,16 @@ searchContent() {
   this.contentFound = this.gameList.some(item => item.title === this.searchTitle);
   // Set search result message based on search outcome
   this.searchResult = this.contentFound ? 'Content found!' : 'Content not found.';
+}
+onContentAdded(newContent: Content) {
+  // Clone the new content object before adding
+  const clonedContent = {...newContent};
+  this.gameList = [...this.gameList, clonedContent];
+  console.log('Content added successfully:', clonedContent.title);
+  
+  // Update the arrays for different types of content
+  this.gameItems = this.gameList.filter(item => item.type === 'Game');
+  this.battleItems = this.gameList.filter(item => item.type === 'Battle');
+  this.noneItems = this.gameList.filter(item => !item.type);
 }
 }
