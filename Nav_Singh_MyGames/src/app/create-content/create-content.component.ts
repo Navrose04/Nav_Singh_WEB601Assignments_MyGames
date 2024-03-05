@@ -27,6 +27,7 @@ export class CreateContentComponent {
   successMessage: string = '';
 
   submitContent(): void {
+    // Check if the title is not empty
     if (this.newContent.title.trim() !== '') {
       this.errorMessage = '';
       this.successMessage = '';
@@ -37,6 +38,7 @@ export class CreateContentComponent {
         }, 2000);
       })
       .then(message => {
+        // When the Promise resolves, set the success message
         this.successMessage = message as string;
         this.contentAdded.emit(this.newContent);
         // Clear the newContent object
