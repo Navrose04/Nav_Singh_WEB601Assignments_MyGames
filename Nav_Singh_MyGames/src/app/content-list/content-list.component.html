@@ -1,9 +1,9 @@
 <!-- Search input -->
-<input [(ngModel)]="searchTitle" placeholder="Enter title">
+<!-- <input [(ngModel)]="searchTitle" placeholder="Enter title">-->
 <button (click)="searchContent()">Search</button>
 <!-- Display search result message -->
 <p [ngStyle]="{'color': contentFound ? 'green' : 'red'}">{{ searchResult }}</p>
-
+ 
 <!-- Display Games section -->
 <h2 [ngStyle]="{'color': 'blue'}">Games</h2>
 <app-content-card *ngFor="let item of gameItems | contentTitleFilter: searchTitle" [content]="item"></app-content-card>

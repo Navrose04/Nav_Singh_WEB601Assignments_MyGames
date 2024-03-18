@@ -2,11 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { gameList } from '../helper-files/contentDb';
 import { GameService } from '../game.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ContentCardComponent } from "../content-card/content-card.component";
+import { ContentFilterPipe } from "../content-filter.pipe";
 
 @Component({
-  selector: 'app-content-list',
-  templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.scss']
+    selector: 'app-content-list',
+    templateUrl: './content-list.component.html',
+    styleUrls: ['./content-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, FormsModule, ContentCardComponent, ContentFilterPipe]
 })
 export class ContentListComponent implements OnInit {
   gameList: Content[] = gameList;
